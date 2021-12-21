@@ -4,7 +4,7 @@ from web3 import Web3,providers
 import json
 
 #define wallet address
-test_wallet_address = 'one18t4yj4fuutj83uwqckkvxp9gfa0568uc48ggj7'
+test_wallet_address = 'one18t4yj4fuutj83uwqckkvxp9gfa0568uc48ggj7' #example wallet
 
 #get all contracts (manually created via https://explorer.harmony.one/hrc20 - have not found any subgraphs yet)
 with open("contracts.json", "r") as contract_file:
@@ -15,14 +15,15 @@ with open("metamask_abi.txt", "r") as abi_file:
     contract_abi = abi_file.read()
 
 #connect to web3 via testnet or mainnet
-test_net = 'https://api.s0.b.hmny.io'
+test_net = 'https://api.s0.b.hmny.io' #get an error when I try to read HRC20 Tokens on test server!
 main_net = 'https://rpc.s0.t.hmny.io'
-w3 = Web3(providers.HTTPProvider(test_net))
+w3 = Web3(providers.HTTPProvider(main_net))
 
 #get ONE balance
-one_balance = account.get_balance(test_wallet_address, endpoint=test_net)
+one_balance = account.get_balance(test_wallet_address, endpoint=main_net)
 
 #haven't figured out how to get the ONE decimal via pyhmy library.
+asset_dict={}
 asset_dict['ONE'] = one_balance*10**(-18)
 
 #loop through HRC20 contracts listed in JSON file
