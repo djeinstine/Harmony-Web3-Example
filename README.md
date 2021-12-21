@@ -12,16 +12,23 @@ source harmony/bin/activate
 https://github.com/harmony-one/pyhmy
 
 #install pyhmy
+
 pip install pyhmy
 
 #libraries needed to compile pyhmy
+
 #install go
+
 sudo apt install golang-go
+
 #install libraries
+
 sudo apt install libgmp-dev  libssl-dev  make gcc g++
 
 #cd to pyhmy git folder and compile
+
 make install
 
 #web3
+
 pip install web3
