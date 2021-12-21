@@ -1,0 +1,23 @@
+#install pyhmy
+https://github.com/harmony-one/pyhmy
+
+#create virtual environment
+virtualenv harmony
+
+#start virtual environment
+source harmony/bin/activate
+
+#install pyhmy
+pip install pyhmy
+
+#web3
+pip install web3
+
+#libraries needed to compile pyhmy
+#install go
+sudo apt install golang-go
+#install libraries
+sudo apt install libgmp-dev  libssl-dev  make gcc g++
+
+#cd to pyhmy git folder and compile
+make install
